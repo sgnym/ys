@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>クイズアプリ</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#007bff">
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>クイズアプリ</h1>
+    <div id="quiz">
+      <div class="question">ここに問題が表示されます</div>
+      <ul class="choices">
+        <!-- 選択肢はJavaScriptで追加されます -->
+      </ul>
+      <button id="next-button" disabled>次の問題</button>
+    </div>
+    <div id="result" class="hidden">
+      <h2>結果</h2>
+      <p id="score">スコア: 0/0</p>
+      <button id="restart-button">再挑戦</button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('Service Worker registered'))
+        .catch(error => console.log('Service Worker registration failed:', error));
+    }
+  </script>
+</body>
+</html>
 
